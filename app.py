@@ -15,11 +15,11 @@ def index():
 	else: 
 		app.vars['ticker_name'] = request.form['ticker']
 
-		f.open('%s.txt'%(app.vars['ticker_name']), 'w')
-		f.write('Ticker Name: %s\n'%(app.vars['ticker_name']))
-		f.close()
+		#f.open('%s.txt'%(app.vars['ticker_name']), 'w')
+		#f.write('Ticker Name: %s\n'%(app.vars['ticker_name']))
+		#f.close()
 
-		return 'requested data on %s'%(app.vars['ticker_name'])
+		return 'requested data' #on %s'%(app.vars['ticker_name'])
 
 if __name__ == '__main__':
 	app.run(port=33507)
