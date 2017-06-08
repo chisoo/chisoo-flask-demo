@@ -19,7 +19,7 @@ def index():
 		#f.write('Ticker Name: %s\n'%(app.vars['ticker_name']))
 		#f.close()
 
-		return 'requested data', app.vars['ticker_name']
+		return 'requested data'
 
 if __name__ == '__main__':
 	app.run(port=33507)
