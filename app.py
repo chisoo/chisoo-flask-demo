@@ -15,7 +15,7 @@ def index():
 	else: 
 		app.vars['ticker_name'] = request.form['ticker']
 
-		return "Requested Data for {}".format(app.vars['ticker_name']
+		return "Requested Data for {}".format(app.vars['ticker_name'])
 
 if __name__ == '__main__':
 	app.run(port=33507)
