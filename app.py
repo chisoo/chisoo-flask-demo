@@ -32,7 +32,7 @@ def index():
 		quandl_data = quandl_data[quandl_data['Date'] >= start_date]
 		quandl_data.reset_index(drop = True, inplace = True)
 
-		return quandl_data
+		return "quandl_data"
 
 if __name__ == '__main__':
 	app.run(port=33507)
