@@ -1,7 +1,17 @@
 from flask import Flask, render_template, request, redirect
+
+import requests
 import quandl
 import os
 from datetime import timedelta
+
+from bokeh.plotting import figure
+from bokeh.embed import components
+
+# plot = figure(tools = TOOLS, 
+# 	title = 'Data from Quandl WIKI set', 
+# 	x_axis_label = 'date', 
+# 	x_axis_type = 'datetime')
 
 # from bokeh.plotting import figure
 # from bokeh.embed import components
