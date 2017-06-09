@@ -6,8 +6,6 @@ import os
 from datetime import timedelta
 import pandas as pd
 
-# from bokeh.palettes import Spectral11
-# from bokeh.plotting import figure
 from bokeh.charts import TimeSeries, output_file
 from bokeh.embed import components
 
@@ -28,7 +26,7 @@ def index():
 
 		# download the data for the ticker
 		quandl.ApiConfig.api_key = os.environ.get('QUANDL_API_KEY')
-		ticker_name = 'AAPL'
+		ticker_name = app.vars['ticker_name']
 		quandl_tag = 'WIKI/' + ticker_name
 		quandl_df = quandl.get(quandl_tag)
 
