@@ -36,9 +36,9 @@ def index():
 		quandl_data = quandl_data[quandl_data['Date'] >= start_date]
 		quandl_data.reset_index(drop = True, inplace = True)
 
-		plot = figure()
-		plot.circle([1, 2], [3, 4])
-		script, div = components(plot)
+		# plot = figure()
+		# plot.circle([1, 2], [3, 4])
+		# script, div = components(plot)
 
 		#return render_template('index1.html', script = script, div = div)
 		return testing
