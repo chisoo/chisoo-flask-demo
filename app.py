@@ -49,9 +49,9 @@ def index():
 		# plot.multi_line(xs = [quandl_df.index.values] * num_lines, 
 		# 	ys = [quandl_df[col].values for col in quandl_df], 
 		# 	line_color = mypalette, line_width = 5)
-		closing_col = dict(col_name = quandl_df['Close'], Date = quandl_df['Date'])
-		plot = TimeSeries(closing_col, index = 'Date', title = 'GOOG', ylabel = 'Stock Prices')
-		
+		plot = TimeSeries(quandl_df, index = 'Date', legend = True, \
+			title = 'plot title placeholder', ylabel = 'Stock Prices')
+
 		script, div = components(plot)
 
 		return render_template('graph.html', script = script, div = div, ticker_name = app.vars['ticker_name'])
