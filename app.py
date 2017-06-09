@@ -13,6 +13,8 @@ from bokeh.embed import components
 # 	x_axis_label = 'date', 
 # 	x_axis_type = 'datetime')
 
+# script, div = components(plot)
+
 app = Flask(__name__)
 
 app.vars = {}
@@ -43,11 +45,11 @@ def index():
 		quandl_data = quandl_data[quandl_data['Date'] >= start_date]
 		quandl_data.reset_index(drop = True, inplace = True)
 
-		# plot = figure()
-		# plot.circle([1, 2], [3, 4])
-		# script, div = components(plot)
+		plot = figure()
+		plot.circle([1, 2], [3, 4])
+		script, div = components(plot)
 
-		#return render_template('index1.html', script = script, div = div)
+		# return render_template('graph.html', script = script, div = div)
 		return 'testing'
 
 if __name__ == '__main__':
