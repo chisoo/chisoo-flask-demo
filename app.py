@@ -1,4 +1,7 @@
 from flask import Flask, render_template, request, redirect
+import quandl
+import os
+from datetime import timedelta
 
 app = Flask(__name__)
 
@@ -14,6 +17,7 @@ def index():
 		return render_template('index.html')
 	else: 
 		app.vars['ticker_name'] = request.form['ticker']
+		print('test')
 
 		return "Requested Data"
 
