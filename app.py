@@ -8,13 +8,6 @@ from datetime import timedelta
 from bokeh.plotting import figure
 from bokeh.embed import components
 
-# plot = figure(tools = TOOLS, 
-# 	title = 'Data from Quandl WIKI set', 
-# 	x_axis_label = 'date', 
-# 	x_axis_type = 'datetime')
-
-# script, div = components(plot)
-
 app = Flask(__name__)
 
 app.vars = {}
@@ -45,7 +38,10 @@ def index():
 		quandl_data = quandl_data[quandl_data['Date'] >= start_date]
 		quandl_data.reset_index(drop = True, inplace = True)
 
-		plot = figure()
+		plot = figure(tools = TOOLS, 
+			title = 'Data from Quandl WIKI set', 
+			x_axis_label = 'date', 
+			x_axis_type = 'datetime')
 		plot.circle([1, 2], [3, 4])
 		script, div = components(plot)
 
