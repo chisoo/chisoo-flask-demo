@@ -41,15 +41,7 @@ def index():
 		quandl_df = quandl_df[quandl_df['Date'] >= start_date]
 		quandl_df.reset_index(drop = True, inplace = True)
 
-		# num_lines = len(quandl_df.columns)
-		# mypalette = Spectral11[0: num_lines]
-
-		# plot = figure(title = 'Data from Quandl WIKI set', 
-		# 	x_axis_label = 'date', 
-		# 	x_axis_type = 'datetime')
-		# plot.multi_line(xs = [quandl_df.index.values] * num_lines, 
-		# 	ys = [quandl_df[col].values for col in quandl_df], 
-		# 	line_color = mypalette, line_width = 5)
+		# set up tuples for dictionary
 		close_tuple = ('Close', quandl_df['Close'])
 		adj_close_tuple = ('Adj. Close', quandl_df['Adj. Close'])
 		open_tuple = ('Open', quandl_df['Open'])
@@ -58,17 +50,17 @@ def index():
 		list_for_plot = [('Date', quandl_df['Date'])]
 		list_for_plot.append(close_tuple)
 		list_for_plot.append(adj_close_tuple)
-		
+		list_for_plot.append(open_tuple)
+		list_for_plot.append(adj_open_tuple)
+
 		data = dict(list_for_plot)
 
 		plot = TimeSeries(data, x = 'Date', \
-			title = 'plot title placeholder', ylabel = 'Stock Prices')
+			ylabel = 'Stock Prices')
 
 		script, div = components(plot)
 
 		return render_template('graph.html', script = script, div = div, ticker_name = app.vars['ticker_name'])
-
-		# return 'testing'
 
 if __name__ == '__main__':
 	app.run(port=33507)
