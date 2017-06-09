@@ -50,8 +50,9 @@ def index():
 		# plot.multi_line(xs = [quandl_df.index.values] * num_lines, 
 		# 	ys = [quandl_df[col].values for col in quandl_df], 
 		# 	line_color = mypalette, line_width = 5)
-		data = dict(CLOSE = quandl_df['Close'], Date = quandl_df['Date'])
-		plot = TimeSeries(data, \
+		data = dict([('CLOSE', quandl_df['Close']), ('Date', quandl_df['Date'])])
+
+		plot = TimeSeries(data, x = 'Date', \
 			title = 'plot title placeholder', ylabel = 'Stock Prices')
 
 		script, div = components(plot)
