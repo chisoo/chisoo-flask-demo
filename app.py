@@ -57,6 +57,8 @@ def index():
 
 		list_for_plot = [('Date', quandl_df['Date'])]
 		list_for_plot.append(close_tuple)
+		list_for_plot.append(adj_close_tuple)
+		
 		data = dict(list_for_plot)
 
 		plot = TimeSeries(data, x = 'Date', \
