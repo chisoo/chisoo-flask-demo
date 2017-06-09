@@ -49,8 +49,8 @@ def index():
 		plot.circle([1, 2], [3, 4])
 		script, div = components(plot)
 
-		# return render_template('graph.html', script = script, div = div)
-		return 'testing'
+		return render_template('graph.html', script = script, div = div)
+		# return 'testing'
 
 if __name__ == '__main__':
 	app.run(port=33507)
