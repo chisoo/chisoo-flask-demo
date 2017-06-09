@@ -3,8 +3,8 @@ import quandl
 import os
 from datetime import timedelta
 
-from bokeh.plotting import figure
-from bokeh.embed import components
+# from bokeh.plotting import figure
+# from bokeh.embed import components
 
 app = Flask(__name__)
 
