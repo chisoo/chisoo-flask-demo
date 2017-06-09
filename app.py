@@ -38,8 +38,11 @@ def index():
 		quandl_data = quandl_data[quandl_data['Date'] >= start_date]
 		quandl_data.reset_index(drop = True, inplace = True)
 
-		plot = figure(tools = TOOLS, 
-			title = 'Data from Quandl WIKI set', 
+		# plot = figure(tools = TOOLS, 
+		# 	title = 'Data from Quandl WIKI set', 
+		# 	x_axis_label = 'date', 
+		# 	x_axis_type = 'datetime')
+		plot = figure(title = 'Data from Quandl WIKI set', 
 			x_axis_label = 'date', 
 			x_axis_type = 'datetime')
 		plot.circle([1, 2], [3, 4])
