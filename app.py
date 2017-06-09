@@ -50,7 +50,14 @@ def index():
 		# plot.multi_line(xs = [quandl_df.index.values] * num_lines, 
 		# 	ys = [quandl_df[col].values for col in quandl_df], 
 		# 	line_color = mypalette, line_width = 5)
-		data = dict([('CLOSE', quandl_df['Close']), ('Date', quandl_df['Date'])])
+		close_tuple = ('Close', quandl_df['Close'])
+		adj_close_tuple = ('Adj. Close', quandl_df['Adj. Close'])
+		open_tuple = ('Open', quandl_df['Open'])
+		adj_open_tuple = ('Adj. Open', quandl_df['Adj. Open'])
+
+		list_for_plot = [('Date', quandl_df['Date'])]
+		list_for_plot.append(close_tuple)
+		data = dict(list_for_plot)
 
 		plot = TimeSeries(data, x = 'Date', \
 			title = 'plot title placeholder', ylabel = 'Stock Prices')
