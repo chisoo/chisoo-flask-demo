@@ -38,6 +38,7 @@ def index():
 		start_date = quandl_df['Date'].max() - timedelta(days = 30)
 		quandl_df = quandl_df[quandl_df['Date'] >= start_date]
 		quandl_df.reset_index(drop = True, inplace = True)
+		quandl_df.set_index('Date', inplace = True)
 
 		num_lines = len(quandl_df.columns)
 		mypalette = Spectral11[0: num_lines]
