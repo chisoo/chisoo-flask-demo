@@ -5,6 +5,7 @@ import quandl
 import os
 from datetime import timedelta
 
+from bokeh.palettes import Spectral11
 from bokeh.plotting import figure
 from bokeh.embed import components
 
@@ -38,10 +39,15 @@ def index():
 		quandl_df = quandl_df[quandl_df['Date'] >= start_date]
 		quandl_df.reset_index(drop = True, inplace = True)
 
+		num_lines = len(quandl_df.columns)
+		mypalette = Spectral11[0: num_lines]
+
 		plot = figure(title = 'Data from Quandl WIKI set', 
 			x_axis_label = 'date', 
 			x_axis_type = 'datetime')
-		plot.line(quandl_df['Close'])
+		plot.multi_line(xs = [quandl_df.index.values] * num_lines, 
+			ys = [quandl_df[col].values for col in quandl_df], 
+			line_color = mypalette, line_width = 5)
 		script, div = components(plot)
 
 		return render_template('graph.html', script = script, div = div, ticker_name = app.vars['ticker_name'])
