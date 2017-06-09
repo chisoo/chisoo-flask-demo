@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
-import quandl
-import os
-from datetime import timedelta
+# import quandl
+# import os
+# from datetime import timedelta
 
 app = Flask(__name__)
 
