@@ -49,7 +49,8 @@ def index():
 		plot.circle([1, 2], [3, 4])
 		script, div = components(plot)
 
-		return render_template('graph.html', script = script, div = div)
+		return render_template('graph.html', script = script, div = div, ticker_name = app.vars['ticker_name'])
+
 		# return 'testing'
 
 if __name__ == '__main__':
