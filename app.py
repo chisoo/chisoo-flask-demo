@@ -4,6 +4,7 @@ import requests
 import quandl
 import os
 from datetime import timedelta
+import pandas as pd
 
 # from bokeh.palettes import Spectral11
 # from bokeh.plotting import figure
