@@ -46,10 +46,14 @@ def index():
 		adj_open_tuple = ('Adj. Open', quandl_df['Adj. Open'])
 
 		list_for_plot = [('Date', quandl_df['Date'])]
-		list_for_plot.append(close_tuple)
-		list_for_plot.append(adj_close_tuple)
-		list_for_plot.append(open_tuple)
-		list_for_plot.append(adj_open_tuple)
+		if request.form.get('closing_price'):
+			list_for_plot.append(close_tuple)
+		if request.form.get('adj_closing_price'):
+			list_for_plot.append(adj_close_tuple)
+		if request.form.get('opening_price'):
+			list_for_plot.append(open_tuple)
+		if request.form.get('adj_opening_price'):
+			list_for_plot.append(adj_open_tuple)
 
 		data = dict(list_for_plot)
 
