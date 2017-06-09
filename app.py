@@ -46,7 +46,8 @@ def index():
 		plot = create_plot()
 		script, div = components(plot)
 
-		return render_template('index1.html', script = script, div = div)
-
+		#return render_template('index1.html', script = script, div = div)
+		return testing
+		
 if __name__ == '__main__':
 	app.run(port=33507)
