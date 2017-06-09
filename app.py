@@ -10,13 +10,6 @@ app = Flask(__name__)
 
 app.vars = {}
 
-# create the main plot
-def create_plot():
-	plot = figure()
-	plot.circle([1, 2], [3, 4])
-
-	return plot
-
 @app.route('/')
 def main():
   return redirect('/index')
@@ -43,11 +36,12 @@ def index():
 		quandl_data = quandl_data[quandl_data['Date'] >= start_date]
 		quandl_data.reset_index(drop = True, inplace = True)
 
-		plot = create_plot()
+		plot = figure()
+		plot.circle([1, 2], [3, 4])
 		script, div = components(plot)
 
 		#return render_template('index1.html', script = script, div = div)
 		return testing
-		
+
 if __name__ == '__main__':
 	app.run(port=33507)
